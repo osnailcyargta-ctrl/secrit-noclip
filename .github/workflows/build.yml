@@ -11,7 +11,9 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: geode-sdk/build-geode-mod@main
+      - name: Build mod
+        id: build
+        uses: geode-sdk/build-geode-mod@main
         with:
           sdk: nightly
           target: Win64
@@ -26,7 +28,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: geode-sdk/build-geode-mod@main
+      - name: Build mod
+        id: build
+        uses: geode-sdk/build-geode-mod@main
         with:
           sdk: nightly
           target: Android32
@@ -41,7 +45,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: geode-sdk/build-geode-mod@main
+      - name: Build mod
+        id: build
+        uses: geode-sdk/build-geode-mod@main
         with:
           sdk: nightly
           target: Android64
