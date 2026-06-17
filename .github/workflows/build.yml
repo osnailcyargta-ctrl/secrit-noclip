@@ -6,33 +6,47 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    strategy:
-      fail-fast: false
-      matrix:
-        config:
-          - name: Windows
-            platform: win
-          - name: Android32
-            platform: android32
-          - name: Android64
-            platform: android64
-
-    name: Build ${{ matrix.config.name }}
-    runs-on: ubuntu-latest
-
+  build-win:
+    name: Build Windows
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Build mod
-        uses: geode-sdk/build-geode-mod@main
+      - uses: geode-sdk/build-geode-mod@main
         with:
           sdk: nightly
-          target: ${{ matrix.config.platform }}
+          target: win
           build-config: Release
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.config.name }}
+          name: Windows
+          path: '*.geode'
+
+  build-android32:
+    name: Build Android32
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: geode-sdk/build-geode-mod@main
+        with:
+          sdk: nightly
+          target: android32
+          build-config: Release
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Android32
+          path: '*.geode'
+
+  build-android64:
+    name: Build Android64
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: geode-sdk/build-geode-mod@main
+        with:
+          sdk: nightly
+          target: android64
+          build-config: Release
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Android64
           path: '*.geode'
