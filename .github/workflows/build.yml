@@ -14,12 +14,12 @@ jobs:
       - uses: geode-sdk/build-geode-mod@main
         with:
           sdk: nightly
-          target: win
+          target: Win64
           build-config: Release
       - uses: actions/upload-artifact@v4
         with:
           name: Windows
-          path: '*.geode'
+          path: ${{ steps.build.outputs.build-output }}
 
   build-android32:
     name: Build Android32
@@ -29,12 +29,12 @@ jobs:
       - uses: geode-sdk/build-geode-mod@main
         with:
           sdk: nightly
-          target: android32
+          target: Android32
           build-config: Release
       - uses: actions/upload-artifact@v4
         with:
           name: Android32
-          path: '*.geode'
+          path: ${{ steps.build.outputs.build-output }}
 
   build-android64:
     name: Build Android64
@@ -44,9 +44,9 @@ jobs:
       - uses: geode-sdk/build-geode-mod@main
         with:
           sdk: nightly
-          target: android64
+          target: Android64
           build-config: Release
       - uses: actions/upload-artifact@v4
         with:
           name: Android64
-          path: '*.geode'
+          path: ${{ steps.build.outputs.build-output }}
