@@ -1,0 +1,31 @@
+{
+    "geode": "4.0.0",
+    "gd": {
+        "win": "2.206",
+        "android32": "2.206",
+        "android64": "2.206",
+        "mac": "2.206"
+    },
+    "id": "osnailcyargta.secrit-noclip",
+    "name": "Secrit No Way",
+    "version": "v1.0.0",
+    "developer": "osnailcyargta",
+    "description": "Noclip mode - tembus tembok tanpa mati. 'secrit no way'",
+    "links": {
+        "source": "https://github.com/osnailcyargta-ctrl/secrit-noclip"
+    },
+    "settings": {
+        "noclip-enabled": {
+            "name": "Enable Noclip",
+            "description": "Player tembus objek tanpa mati",
+            "type": "bool",
+            "default": true
+        },
+        "show-text": {
+            "name": "Show 'secrit no way' text",
+            "description": "Tampilkan teks saat noclip terjadi",
+            "type": "bool",
+            "default": true
+        }
+    }
+}
